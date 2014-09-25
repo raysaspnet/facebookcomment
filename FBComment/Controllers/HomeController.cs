@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FBComment.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,7 @@ namespace FBComment.Controllers
     {
         public ActionResult Index()
         {
+
             return View();
         }
 
@@ -25,6 +27,16 @@ namespace FBComment.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+        [HttpPost]
+        public string Contact(HttpPostedFileBase file)
+        {
+            if (file != null && file.ContentLength > 0)
+            {
+                //var img = new BayImageClient();
+                //return img.POSTBayImage(file, file.FileName);
+            }
+            return "";
         }
     }
 }
